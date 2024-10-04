@@ -1,10 +1,10 @@
-# cpp-cli-bazel-hello-world
+# clang-cli-bazel-hello-world
 
 ## Description
-POC for bazel building c++.
+POC for bazel building c.
 
 ## Tech stack
-- cpp
+- c
 - bazel
 
 ## Docker stack

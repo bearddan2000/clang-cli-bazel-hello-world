@@ -82,18 +82,13 @@ function start-up(){
 
     echo "$info_base build image" >> $logfile
 
+    docker build -t $docker_img_name .
+
     echo "$info_base running image" >> $logfile
-    #
+    
     docker run -ti --rm \
       -e USER="$(id -u)" \
-      -u="$(id -u)" \
-      -v $(pwd)/bin:/src/workspace \
-      -v $(pwd)/output:/src/workspace/bazel-bin \
-      -v $(pwd)/output/build_output:/tmp/build_output \
-      -w /src/workspace \
-      l.gcr.io/google/bazel:latest \
-      --output_user_root=/tmp/build_output \
-      run :main
+      -u="$(id -u)" $docker_img_name
 
     echo "$info_base ended" >> $logfile
 
